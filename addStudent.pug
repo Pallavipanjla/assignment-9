@@ -1,0 +1,43 @@
+extends layout
+
+block content
+
+  h1.edit-heading ADD STUDENT
+
+  form(action='/add', method='POST')
+
+    .form-group
+      label Name
+
+      input(
+        type='text',
+        name='name',
+        placeholder='Enter student name',
+        required
+      )
+
+    .form-group
+      label Course
+
+      input(
+        type='text',
+        name='course',
+        placeholder='Enter course name',
+        required
+      )
+
+    .form-group
+      label Marks
+
+      input(
+        type='number',
+        name='marks',
+        placeholder='Enter marks',
+        required
+      )
+
+    button.btn.btn-add(type='submit')
+
+      i(class='fa-solid fa-plus')
+
+      |  Add Student

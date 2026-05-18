@@ -1,0 +1,40 @@
+extends layout
+
+block content
+
+  .top-bar
+    h1 Student Management System
+
+    a.btn.btn-add(href='/add')
+      i(class='fa-solid fa-user-plus')
+      |  Add Student
+
+  table
+
+    tr
+      th ID
+      th Name
+      th Course
+      th Marks
+      th Actions
+
+    each student in students
+
+      tr
+        td= student.id
+        td= student.name
+        td= student.course
+        td= student.marks
+
+        td
+          .action-buttons
+
+            a.btn.btn-edit(href=`/edit/${student.id}`)
+              i(class='fa-solid fa-pen')
+              |  Edit
+
+            form(action=`/delete/${student.id}?_method=DELETE`, method='POST', style='display:inline; margin:0;')
+
+              button.btn.btn-delete(type='submit')
+                i(class='fa-solid fa-trash')
+                |  Delete
